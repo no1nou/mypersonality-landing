@@ -21,7 +21,11 @@
       "mcp__railway__list-deployments",
       "mcp__Figma__get_metadata",
       "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Match Figma cosmetic tweaks: taller CTA \\(72px/r36\\), tighter review avatars, larger spacing before metrics/card *)",
-      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Pin Railway start command via railway.json \\(serve public, no single-page fallback\\) *)"
+      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Pin Railway start command via railway.json \\(serve public, no single-page fallback\\) *)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}\\\\n' https://mypersonality-landing-production.up.railway.app/zzz-nope-123)",
+      "Bash(curl -sL -o /tmp/p.html -w 'code=%{http_code} size=%{size_download}\\\\n' https://mypersonality-landing-production.up.railway.app/paywall)",
+      "Read(//private/tmp/**)",
+      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Add calm staggered fade+blur entrance animation to landing blocks \\(respects reduced-motion\\) *)"
     ]
   }
 }
