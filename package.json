@@ -1,0 +1,12 @@
+{
+  "name": "mypersonality-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MyPersonality landing — first screen (Figma 1:1)",
+  "scripts": {
+    "start": "serve -s public -l ${PORT:-3000}"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
