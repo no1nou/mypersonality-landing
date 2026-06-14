@@ -18,7 +18,9 @@
       "Bash(git add *)",
       "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Pixel-perfect pass: real Editorial New + Aeroport fonts, exact Figma specs and assets *)",
       "Bash(git push *)",
-      "mcp__railway__list-deployments"
+      "mcp__railway__list-deployments",
+      "mcp__Figma__get_metadata",
+      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Match Figma cosmetic tweaks: taller CTA \\(72px/r36\\), tighter review avatars, larger spacing before metrics/card *)"
     ]
   }
 }
