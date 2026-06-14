@@ -52,6 +52,55 @@
   .tperson img { width: 36px; height: 36px; border-radius: 50%; }
   .tperson .nm { font-size: 16px; letter-spacing: -0.48px; line-height: 1.1; }
   .tperson .rl { font-size: 12px; letter-spacing: -0.36px; line-height: 1.1; opacity: .5; margin-top: 1px; }
+
+  /* payment bottom-sheet */
+  body.locked { overflow: hidden; }
+  .sheet-scrim { position: fixed; inset: 0; background: rgba(0,0,0,.45); opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s; z-index: 50; }
+  .sheet-open .sheet-scrim { opacity: 1; visibility: visible; }
+  .sheet { position: fixed; left: 0; right: 0; bottom: 0; max-width: 375px; margin: 0 auto; max-height: 92vh; overflow-y: auto; background: #fff; border-radius: 32px 32px 0 0; transform: translateY(100%); transition: transform .42s cubic-bezier(.21,.6,.35,1); z-index: 51; -webkit-overflow-scrolling: touch; }
+  .sheet-open .sheet { transform: translateY(0); }
+  .handle { position: sticky; top: 0; display: flex; justify-content: center; padding: 8px 0; background: #fff; cursor: pointer; }
+  .handle i { width: 40px; height: 4px; border-radius: 3px; background: #ebeae8; }
+  .sheet-title { text-align: center; font-size: 16px; letter-spacing: -0.48px; padding: 8px 0 0; }
+  .timer { display: flex; align-items: center; justify-content: center; position: relative; background: #f2f1f0; height: 46px; margin-top: 16px; }
+  .timer .shield { position: absolute; left: 16px; width: 14px; height: 20px; }
+  .timer .t b { display: block; font-weight: 400; font-size: 16px; letter-spacing: -0.48px; line-height: 1.1; text-align: center; }
+  .timer .t span { display: block; font-size: 11px; letter-spacing: -0.33px; line-height: 1.2; opacity: .5; text-align: center; }
+  .sheet-body { padding: 24px 16px 36px; }
+  .h-reveal { font-size: 24px; letter-spacing: -0.72px; line-height: 1.1; }
+  .banner { display: flex; align-items: center; justify-content: center; gap: 4px; background: #f2f1f0; border-radius: 24px; height: 24px; margin-top: 14px; }
+  .banner img { width: 13px; height: 16px; }
+  .banner span { font-size: 11px; letter-spacing: -0.33px; color: #d77129; }
+  .order { background: #f2f1f0; border-radius: 24px; padding: 20px 16px; margin-top: 14px; }
+  .order .row { display: flex; justify-content: space-between; align-items: baseline; }
+  .order .row .k, .order .row .v { font-size: 16px; letter-spacing: -0.48px; }
+  .order .desc { font-size: 11px; letter-spacing: -0.33px; opacity: .5; margin-top: 6px; }
+  .order hr { border: none; border-top: 1px solid rgba(0,0,0,.1); margin: 14px 0; }
+  .order .total .k, .order .total .v { font-weight: 500; }
+  .pays { margin-top: 18px; display: flex; flex-direction: column; gap: 12px; }
+  .pay { display: flex; align-items: center; justify-content: center; gap: 8px; height: 64px; background: #fff; border: none; border-radius: 24px; cursor: pointer; width: 100%; box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 4px 24px rgba(0,0,0,.10); }
+  .pay span { font-size: 16px; letter-spacing: -0.48px; color: #000; }
+  .pay img { display: block; }
+  .pay .paypal { width: 20px; height: 25px; } .pay .applepay { width: 56px; height: 23px; } .pay .gpay { width: 62px; height: 30px; } .pay .cc { width: 16px; height: 20px; }
+  .ordiv { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+  .ordiv::before, .ordiv::after { content: ""; flex: 1; height: 1px; background: rgba(0,0,0,.12); }
+  .ordiv span { font-size: 11px; letter-spacing: -0.33px; opacity: .5; }
+  .ssl { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 18px; text-align: center; }
+  .ssl .lbl { display: flex; align-items: center; gap: 7px; }
+  .ssl .lbl img { width: 14px; height: 20px; }
+  .ssl .lbl span { font-size: 11px; letter-spacing: -0.33px; color: #00b253; }
+  .ssl .terms { font-size: 11px; line-height: 1.4; letter-spacing: -0.33px; opacity: .5; }
+  .divline { border: none; border-top: 1px solid rgba(0,0,0,.1); margin: 24px 0; }
+  .h-plan { font-family: var(--serif); font-size: 32px; line-height: 1.05; letter-spacing: 0.64px; text-align: center; }
+  .h-plan u { text-underline-offset: 3px; }
+  .trust { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 26px; }
+  .trust .check { gap: 4px; }
+  .mock { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: none; align-items: center; justify-content: center; padding: 32px; z-index: 60; }
+  .mock.on { display: flex; }
+  .mock .box { max-width: 320px; background: #fff; border-radius: 20px; padding: 24px; text-align: center; }
+  .mock .box h3 { font-family: var(--serif); font-size: 22px; margin-bottom: 8px; }
+  .mock .box p { font-size: 14px; line-height: 1.4; opacity: .7; margin-bottom: 18px; }
+  .mock .box button { font-family: var(--sans); font-size: 15px; color: #fff; background: #000; border: none; border-radius: 24px; padding: 12px 24px; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -70,7 +119,7 @@
       <div class="name">Strategic Thinking</div>
     </div>
 
-    <a class="cta reveal" style="--d:.62s" href="checkout.html">
+    <a class="cta reveal" style="--d:.62s" href="#" onclick="openSheet();return false;">
       <span class="cta-txt"><b>Reveal my personality insights</b><span>0$ due now</span></span>
       <span class="cta-arrow" aria-hidden="true"><img src="/assets/arrow.svg" alt="" /></span>
     </a>
@@ -98,5 +147,80 @@
       </div>
     </div>
   </main>
+
+  <div class="sheet-scrim" id="scrim" onclick="closeSheet()" aria-hidden="true"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Secure checkout">
+    <div class="handle" onclick="closeSheet()" aria-label="Close"><i></i></div>
+    <div class="sheet-title">Secure checkout</div>
+
+    <div class="timer">
+      <img class="shield" src="/assets/shield.svg" alt="" />
+      <div class="t"><b id="ctTimer">4:59</b><span>Time for safety payment</span></div>
+    </div>
+
+    <div class="sheet-body">
+      <div class="h-reveal">Reveal your results now</div>
+
+      <div class="banner"><img src="/assets/parties.svg" alt="" /><span>24 people already revealed their results in the last hour</span></div>
+
+      <div class="order">
+        <div class="row"><span class="k">MyPersonality Premium</span><span class="v">0$</span></div>
+        <div class="desc">Personality test results &amp; Full Access (1d)</div>
+        <hr />
+        <div class="row total"><span class="k">Total</span><span class="v">0$</span></div>
+      </div>
+
+      <div class="pays">
+        <button class="pay" data-m="PayPal"><img class="paypal" src="/assets/paypal.png" alt="" /><span>Paypal</span></button>
+        <button class="pay" data-m="Apple Pay"><img class="applepay" src="/assets/applepay.svg" alt="Apple Pay" /></button>
+        <button class="pay" data-m="Google Pay"><img class="gpay" src="/assets/googlepay.svg" alt="Google Pay" /></button>
+        <div class="ordiv"><span>or</span></div>
+        <button class="pay" data-m="Credit Card"><img class="cc" src="/assets/creditcard.svg" alt="" /><span>Credit Card</span></button>
+      </div>
+
+      <div class="ssl">
+        <div class="lbl"><img src="/assets/shield.svg" alt="" /><span>SSL Secure</span></div>
+        <div class="terms">Billing terms: Free 1 day trial. Payment authorized $27.88/mo after, unless canceled. Cancel anytime: 855-342-8558 / support@mypersonality.net</div>
+      </div>
+
+      <hr class="divline" />
+
+      <div class="h-plan">Get your personal development plan <u>now</u></div>
+
+      <div class="trust">
+        <div class="check"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 5"/></svg><span>Located in the US</span></div>
+        <div class="check"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 5"/></svg><span>No charges today</span></div>
+        <div class="check"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 5"/></svg><span>30-day 100% refund</span></div>
+        <div class="check"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 5"/></svg><span>Cancel anytime</span></div>
+        <div class="check"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 5"/></svg><span>No additional charges</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mock" id="mock">
+    <div class="box">
+      <h3>Prototype</h3>
+      <p>This is a research prototype. No payment method is collected and no charge is made.</p>
+      <button onclick="document.getElementById('mock').classList.remove('on')">Got it</button>
+    </div>
+  </div>
+
+  <script>
+    var sheetTimer;
+    function startTimer() {
+      if (sheetTimer) return;
+      var t = 299, el = document.getElementById('ctTimer');
+      sheetTimer = setInterval(function () {
+        if (t > 0) t--;
+        var m = Math.floor(t / 60), s = t % 60;
+        el.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+      }, 1000);
+    }
+    function openSheet() { document.body.classList.add('sheet-open', 'locked'); startTimer(); }
+    function closeSheet() { document.body.classList.remove('sheet-open', 'locked'); }
+    document.querySelectorAll('#sheet .pay').forEach(function (b) {
+      b.addEventListener('click', function () { document.getElementById('mock').classList.add('on'); });
+    });
+  </script>
 </body>
 </html>
