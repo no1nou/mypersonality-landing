@@ -5,7 +5,19 @@
       "mcp__visualize__show_widget",
       "mcp__Figma__get_screenshot",
       "mcp__Figma__get_design_context",
-      "mcp__Figma__get_variable_defs"
+      "mcp__Figma__get_variable_defs",
+      "Bash(gh repo *)",
+      "mcp__railway__list-projects",
+      "mcp__railway__create-project",
+      "mcp__railway__railway-agent",
+      "mcp__railway__accept-deploy",
+      "mcp__railway__get-status",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://mypersonality-landing-production.up.railway.app)",
+      "Bash(curl -s https://mypersonality-landing-production.up.railway.app)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git add *)",
+      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Pixel-perfect pass: real Editorial New + Aeroport fonts, exact Figma specs and assets *)",
+      "Bash(git push *)"
     ]
   }
 }
