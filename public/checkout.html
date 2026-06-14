@@ -17,9 +17,14 @@
   .backdrop .logo-mark { width: 36px; height: 36px; border-radius: 10px; background: url('/assets/logo.png') center / 162.5% no-repeat; }
   .backdrop .logo-name { font-size: 14px; font-weight: 500; letter-spacing: -0.28px; }
   .backdrop h1 { font-family: var(--serif); font-size: 40px; line-height: 1.05; letter-spacing: 0.8px; text-align: center; margin-top: 28px; }
-  .scrim { position: fixed; inset: 0; background: rgba(0,0,0,.45); }
+  .scrim { position: fixed; inset: 0; background: rgba(0,0,0,.45); animation: fadeIn .6s ease both; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes sheetUp { from { opacity: 0; transform: translateY(48px); } to { opacity: 1; transform: none; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(16px); filter: blur(7px); } to { opacity: 1; transform: none; filter: blur(0); } }
+  .reveal { opacity: 0; animation: rise 1s cubic-bezier(.21,.6,.35,1) both; animation-delay: var(--d, 0s); }
+  @media (prefers-reduced-motion: reduce) { .scrim, .sheet, .reveal { animation: none; opacity: 1; transform: none; filter: none; } }
 
-  .sheet { position: relative; max-width: 375px; margin: 72px auto 0; min-height: calc(100vh - 72px); background: #fff; border-radius: 32px 32px 0 0; overflow: hidden; }
+  .sheet { position: relative; max-width: 375px; margin: 72px auto 0; min-height: calc(100vh - 72px); background: #fff; border-radius: 32px 32px 0 0; overflow: hidden; animation: sheetUp .7s cubic-bezier(.21,.6,.35,1) both; }
   .handle { display: flex; justify-content: center; padding: 8px 0; }
   .handle i { width: 40px; height: 4px; border-radius: 3px; background: #ebeae8; }
   .sheet h2 { text-align: center; font-size: 16px; font-weight: 400; letter-spacing: -0.48px; padding: 16px 0 0; }
@@ -89,26 +94,26 @@
 
   <main class="sheet">
     <div class="handle"><i></i></div>
-    <h2>Secure checkout</h2>
+    <h2 class="reveal" style="--d:.30s">Secure checkout</h2>
 
-    <div class="timer">
+    <div class="timer reveal" style="--d:.40s">
       <img class="shield" src="/assets/shield.svg" alt="" />
       <div class="t"><b>4:59</b><span>Time for safety payment</span></div>
     </div>
 
     <div class="body">
-      <div class="h-reveal">Reveal your results now</div>
+      <div class="h-reveal reveal" style="--d:.50s">Reveal your results now</div>
 
-      <div class="banner"><img src="/assets/parties.svg" alt="" /><span>24 people already revealed their results in the last hour</span></div>
+      <div class="banner reveal" style="--d:.60s"><img src="/assets/parties.svg" alt="" /><span>24 people already revealed their results in the last hour</span></div>
 
-      <div class="order">
+      <div class="order reveal" style="--d:.70s">
         <div class="row"><span class="k">MyPersonality Premium</span><span class="v">0$</span></div>
         <div class="desc">Personality test results &amp; Full Access (1d)</div>
         <hr />
         <div class="row total"><span class="k">Total</span><span class="v">0$</span></div>
       </div>
 
-      <div class="pays">
+      <div class="pays reveal" style="--d:.82s">
         <button class="pay" data-m="PayPal"><img class="paypal" src="/assets/paypal.png" alt="" /><span>Paypal</span></button>
         <button class="pay" data-m="Apple Pay"><img class="applepay" src="/assets/applepay.svg" alt="Apple Pay" /></button>
         <button class="pay" data-m="Google Pay"><img class="gpay" src="/assets/googlepay.svg" alt="Google Pay" /></button>
@@ -116,16 +121,16 @@
         <button class="pay" data-m="Credit Card"><img class="cc" src="/assets/creditcard.svg" alt="" /><span>Credit Card</span></button>
       </div>
 
-      <div class="ssl">
+      <div class="ssl reveal" style="--d:.96s">
         <div class="lbl"><img src="/assets/shield.svg" alt="" /><span>SSL Secure</span></div>
         <div class="terms">Billing terms: Free 1 day trial. Payment authorized $27.88/mo after, unless canceled. Cancel anytime: 855-342-8558 / support@mypersonality.net</div>
       </div>
 
       <hr class="divline" />
 
-      <div class="h-plan">Get your personal development plan <u>now</u></div>
+      <div class="h-plan reveal" style="--d:1.08s">Get your personal development plan <u>now</u></div>
 
-      <div class="trust">
+      <div class="trust reveal" style="--d:1.20s">
         <div class="check"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 5"/></svg><span>Located in the US</span></div>
         <div class="check"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 5"/></svg><span>No charges today</span></div>
         <div class="check"><svg viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 5"/></svg><span>30-day 100% refund</span></div>

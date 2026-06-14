@@ -26,7 +26,8 @@
       "Bash(curl -sL -o /tmp/p.html -w 'code=%{http_code} size=%{size_download}\\\\n' https://mypersonality-landing-production.up.railway.app/paywall)",
       "Read(//private/tmp/**)",
       "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Add calm staggered fade+blur entrance animation to landing blocks \\(respects reduced-motion\\) *)",
-      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Landing test card: drop meta line, '\\\\''Curated by Jane Zvi'\\\\'', stacked-deck effect \\(more tests beneath\\) + '\\\\''Check our other tests'\\\\''; staggered entrance animation *)"
+      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Landing test card: drop meta line, '\\\\''Curated by Jane Zvi'\\\\'', stacked-deck effect \\(more tests beneath\\) + '\\\\''Check our other tests'\\\\''; staggered entrance animation *)",
+      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Add staggered entrance animation to paywall and checkout \\(sheet slide-up + scrim fade\\); respects reduced-motion *)"
     ]
   }
 }
