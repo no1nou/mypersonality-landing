@@ -34,7 +34,8 @@
       "mcp__railway__redeploy",
       "Bash(curl -sL https://mypersonality-landing-production.up.railway.app/paywall)",
       "Bash(git rm *)",
-      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Make payment checkout a real in-page bottom-sheet over the paywall \\(slide-up + scrim\\), remove standalone checkout screen *)"
+      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Make payment checkout a real in-page bottom-sheet over the paywall \\(slide-up + scrim\\), remove standalone checkout screen *)",
+      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Payment bottom-sheet spans full device width \\(drop 375px cap\\) *)"
     ]
   }
 }
