@@ -20,7 +20,8 @@
       "Bash(git push *)",
       "mcp__railway__list-deployments",
       "mcp__Figma__get_metadata",
-      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Match Figma cosmetic tweaks: taller CTA \\(72px/r36\\), tighter review avatars, larger spacing before metrics/card *)"
+      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Match Figma cosmetic tweaks: taller CTA \\(72px/r36\\), tighter review avatars, larger spacing before metrics/card *)",
+      "Bash(git -c user.name=no1nou -c user.email=krofferman@gmail.com commit -q -m 'Pin Railway start command via railway.json \\(serve public, no single-page fallback\\) *)"
     ]
   }
 }
